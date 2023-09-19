@@ -54,8 +54,26 @@ oc delete secrets kubeadmin -n kube-system
 ## Add labels
 - metadata.labels.name = ${PROJECT_NAME}
 ## Add Network Policy
+- apiVersion: networking.k8s.io/v1
+- kind: NetworkPolicy
+- metadata.name: allow-from-openshift-ingress
+- spec:
+-   podSelector: {}
+-   ingress:
+   - from:
+   - namespaceSelector:
+       matchLabels:
+          network.openshift.io/policy-groups: ingress
   
-  
+- apiVersion: networking.k8s.io/v1
+- kind: NetworkPolicy
+- metadata.name: allow-same-namespace
+- spec:
+-   podSelector: {}
+-   ingress:
+   - from:
+     - podSelector: {}
+       
  
 
   
