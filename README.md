@@ -15,8 +15,10 @@ oc create secret generic htpass-users --from-file htpasswd=/tmp/htpasswd -n open
 - oc get oauth cluster -o yaml > /tmp/oauth.yaml
 - oc replace -f /tmp/oauth.yaml
 
-## Add role to users
+## Add cluster role to users
 - oc adm policy add-role-users cluster-admin admin
+## Delete kubeadmin from cluster
+oc delete secrets kubeadmin -n kube-system
 
 
  
