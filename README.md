@@ -48,6 +48,13 @@ oc delete secrets kubeadmin -n kube-system
 - oc adm policy add-role-to-user view anouk -n test-namespace
 - oc adm policy add-role-to-user rdit anouk -n test-namespace
 
+# Create a project template
+- oc adm create-bootstrap-project-template -o yaml > template.yaml
+- vi template.yaml
+## Add labels
+- metadata.labels.name = ${PROJECT_NAME}
+## Add Network Policy
+  
   
  
 
