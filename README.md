@@ -99,6 +99,9 @@ oc create secret tls secure-app-tls --cert tls.crt --key tls.key`
 - openssl req -new -key another.key -out another.csr
 ## Create public key
 - openssl x509 -req -in another.csr -CA myCA.pem -CAkey myCA.key -CAcreateserial -out another.crt -days 1650 -sha256
+## Create secret
+- oc create secret tls linginx-certs --cert
+- oc create secret tls linginx-certs --cert=/home/wel1632/openssl/another.crt --key=/home/wel1632/openssl/another.key
 
   
  
