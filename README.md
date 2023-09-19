@@ -39,10 +39,14 @@ oc delete secrets kubeadmin -n kube-system
     
 ## Add group permission
 - oc adm policy add-cluster-role-to-group cluster-admin admins
-
 - oc adm policy add-cluster-role-to-group edit developers
 - oc adm policy add-cluster-role-to-group view developers
+- oc adm policy add-cluster-role-to-group view viewers
 - 
+  ## Add user to namespace
+- oc create namespace test-namespace
+- oc adm policy add-role-to-user view anouk -n test-namespace
+- oc adm policy add-role-to-user rdit anouk -n test-namespace
 
   
  
