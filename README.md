@@ -20,6 +20,20 @@ oc create secret generic htpass-users --from-file htpasswd=/tmp/htpasswd -n open
 ## Delete kubeadmin from cluster
 oc delete secrets kubeadmin -n kube-system
 
+## Create groups
+- oc adm groups new admins
+- oc adm groups new developers
+- oc adm groups new viewers
+
+## Add users to groups
+- oc adm groups add-users admins admin anna
+- oc adm groups add-users developers linda developer
+- oc adm groups add-users viewers lisa
+
+  ## Add users
+  oc create user joe
+
+  
 
  
  
