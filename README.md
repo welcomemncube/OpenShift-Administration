@@ -73,7 +73,18 @@ oc delete secrets kubeadmin -n kube-system
 -   ingress:
    - from:
      - podSelector: {}
-       
+
+# Create a secure application
+## Create an certificate
+- mkdir openssl
+- openssl genrsa -des3 -out myCA.key 2048
+  ## Sign the certificate
+  - openssl req -x509 -new -nodes -key myCA.key -sha256 -days 3650 -out myCA.pem
+
+ ## Application Certificate
+ openssl genrsa -out tls.key 2048
+ - openssl req -new -key tls.key -out tls.csr
+ - openssl x509 -req -in tls.csr -CA myCA.pem -CAKey myCA.key -CAcreateserial -out 
  
 
   
