@@ -88,8 +88,11 @@ oc delete secrets kubeadmin -n kube-system
 ## Create new project
 - oc new-project my-project
 ## Create new application
-- oc new-app --docker-image=<image>:latest --name secure-app
-- oc create secret tls secure-app-tls --cert tls.crt --key tls.key
+`oc new-app --docker-image=<image>:latest --name secure-app
+oc create secret tls secure-app-tls --cert tls.crt --key tls.key`
+
+# Create a Passthrough Route
+- 
 
   
  
