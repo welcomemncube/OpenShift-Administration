@@ -103,6 +103,11 @@ oc create secret tls secure-app-tls --cert tls.crt --key tls.key`
 - oc create secret tls linginx-certs --cert
 - oc create secret tls linginx-certs --cert=/home/wel1632/openssl/another.crt --key=/home/wel1632/openssl/another.key
 
+# Configure AutoScaling
+- oc create deployment deploymentName --image=imagename --replicas=3
+- oc autoscale deployment/deploymentName --min 1 --max 5 --cpu-percent 70
+  
+
   
  
 
