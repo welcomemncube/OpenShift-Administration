@@ -84,7 +84,7 @@ oc delete secrets kubeadmin -n kube-system
  ## Application Certificate
  openssl genrsa -out tls.key 2048
  - openssl req -new -key tls.key -out tls.csr
- - openssl x509 -req -in tls.csr -CA myCA.pem -CAKey myCA.key -CAcreateserial -out 
+ - openssl x509 -req -in tls.csr -CA myCA.pem -CAKey myCA.key -CAcreateserial -out tls.crt -days 1650 -sha256
  
 
   
