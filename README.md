@@ -92,7 +92,13 @@ oc delete secrets kubeadmin -n kube-system
 oc create secret tls secure-app-tls --cert tls.crt --key tls.key`
 
 # Create a Passthrough Route
-- 
+## Create a certificate
+- openssl genrsa -out another.key 2048
+  
+## Sign the cerficate
+- openssl req -new -key another.key -out another.csr
+## Create public key
+- openssl x509 -req -in another.csr -CA myCA.pem -CAkey myCA.key -CAcreateserial -out another.crt -days 1650 -sha256
 
   
  
