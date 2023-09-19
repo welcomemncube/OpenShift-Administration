@@ -31,7 +31,21 @@ oc delete secrets kubeadmin -n kube-system
 - oc adm groups add-users viewers lisa
 
   ## Add users
-  oc create user joe
+  - oc create user joe
+## Setting up Authorization
+
+## Show cluster roles
+  - oc describe clusterrole.rbac | grep ^Name | grep -v 'system:'
+    
+## Add group permission
+- oc adm policy add-cluster-role-to-group cluster-admin admins
+
+- oc adm policy add-cluster-role-to-group edit developers
+- oc adm policy add-cluster-role-to-group view developers
+- 
+
+  
+ 
 
   
 
